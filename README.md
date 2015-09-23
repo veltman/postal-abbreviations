@@ -36,6 +36,7 @@ postal("Puerto Rico"); //PR
 postal("UT"); //Utah
 postal("District of Columbia"); //DC
 postal("Washington, D.C."); //DC
+postal("Narnia"); //null
 ```
 
 ### postal([state name or postal abbreviation])
