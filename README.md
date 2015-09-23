@@ -28,6 +28,16 @@ Require the module:
 var postal = require("postal-abbreviations");
 ```
 
+Then call the function:
+
+```js
+postal("OR"); //Oregon
+postal("Puerto Rico"); //PR
+postal("UT"); //Utah
+postal("District of Columbia"); //DC
+postal("Washington, D.C."); //DC
+```
+
 ### postal([state name or postal abbreviation])
 
 If you pass a state name (`postal("California")`), it will return the two-letter postal abbreviation (`"CA"`).  If you pass a two-letter postal abbreviation (`postal("NV")`), it will return the state name, with proper capitalization (`"Nevada"`).
