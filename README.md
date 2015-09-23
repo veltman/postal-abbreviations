@@ -32,4 +32,8 @@ var postal = require("postal-abbreviations");
 
 If you pass a state name (`postal("California")`), it will return the two-letter postal abbreviation (`"CA"`).  If you pass a two-letter postal abbreviation (`postal("NV")`), it will return the state name, with proper capitalization (`"Nevada"`).
 
+If no match is found, it will return `null`.
+
+### Notes
+
 Includes every state and US possession on [this US Postal Service list](http://pe.usps.gov/text/pub28/28apb.htm).
