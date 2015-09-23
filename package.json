@@ -1,0 +1,19 @@
+{
+  "name": "postal-abbreviations",
+  "version": "1.0.0",
+  "description": "A no-fuss converter for state name <--> postal abbreviation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veltman/postal-abbreviations.git"
+  },
+  "author": "Noah Veltman (@veltman)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veltman/postal-abbreviations/issues"
+  },
+  "homepage": "https://github.com/veltman/postal-abbreviations"
+}
