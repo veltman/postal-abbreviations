@@ -1,6 +1,6 @@
 {
   "name": "postal-abbreviations",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A no-fuss converter for state name <--> postal abbreviation.",
   "main": "index.js",
   "scripts": {

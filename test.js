@@ -53,5 +53,11 @@ assert.equal(postal("S Dakota"),"SD","S Dakota -> SD");
 assert.equal(postal("S. Dakota"),"SD","S. Dakota -> SD");
 assert.equal(postal("South Dakota"),"SD","South Dakota -> SD");
 
-assert.deepEqual(postal(["NV","UT","CO"]),["Nevada","Utah","Colorado"],"[NV,UT,CO] failed");
-assert.deepEqual(postal(["S. DAKOTA","north carolina","France"]),["SD","NC",null],"[S. DAKOTA,north carolina,France] failed");
+assert.equal(postal.toAbbreviation("S Dakota"),"SD","abbreviation(S Dakota) -> SD");
+assert.equal(postal.toAbbreviation("South Dakota"),"SD","abbreviation(South Dakota) -> SD");
+assert.equal(postal.toName("S Dakota"),null,"name(S Dakota) -> null");
+assert.equal(postal.toName("SD"),"South Dakota","name(SD) -> South Dakota");
+assert.equal(postal.toAbbreviation("SD"),null,"abbreviation(SD) -> null");
+
+//assert.deepEqual(postal(["NV","UT","CO"]),["Nevada","Utah","Colorado"],"[NV,UT,CO] failed");
+//assert.deepEqual(postal(["S. DAKOTA","north carolina","France"]),["SD","NC",null],"[S. DAKOTA,north carolina,France] failed");

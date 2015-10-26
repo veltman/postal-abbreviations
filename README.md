@@ -39,9 +39,31 @@ postal("Washington, D.C."); //DC
 postal("Narnia"); //null
 ```
 
+It will automatically detect which way you're converting, but you can force it with `.toName()` or `.toAbbreviation()`:
+
+```js
+postal.toName("OR"); //Oregon
+postal.toAbbreviation("OR"); //null, OR isn't a state name
+
+postal.toAbbreviation("Washington"); //WA
+postal.toName("Washington"); //null, Washington isn't an abbreviation
+```
+
 ### postal([state name or postal abbreviation])
 
 If you pass a state name (`postal("California")`), it will return the two-letter postal abbreviation (`"CA"`).  If you pass a two-letter postal abbreviation (`postal("NV")`), it will return the state name, with proper capitalization (`"Nevada"`).
+
+If no match is found, it will return `null`.
+
+### postal.toAbbreviation([state name])
+
+Returns the postal abbreviation that matches the state name.
+
+If no match is found, it will return `null`.
+
+### postal.toName([postal abbreviation])
+
+Returns the state name that matches the two-letter postal abbreviation.
 
 If no match is found, it will return `null`.
 

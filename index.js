@@ -2,34 +2,46 @@ var toName = require("./postal-to-name.json"),
     toPostal = require("./name-to-postal.json"),
     fuzzyMatches = require("./fuzzy-matches.js");
 
-function convert(input) {
+var convert = function(input) {
 
-  if (Array.isArray(input) && input.every(isStr)) {
-    return input.map(doConversion);
-  }
-
-  return doConversion(input);
-
-}
-
-function doConversion(str) {
-
-  if (!isStr(str)) {
+  if (!isStr(input)) {
     return null;
   }
 
-  var test = str.trim().replace(/\s+/g," ").toUpperCase();
+  var cleaned = clean(input);
 
-  if (test.length === 2) {
-    return toName[test] || null;
+  if (cleaned.length === 2) {
+    return convertToName(cleaned);
   }
 
-  if (toPostal[test]) {
-    return toPostal[test];
+  return convertToAbbreviation(cleaned);
+
+};
+
+convert.toName = function(input) {
+
+  return convertToName(clean(input));
+
+};
+
+convert.toAbbreviation = function(input) {
+
+  return convertToAbbreviation(clean(input));
+
+}
+
+function convertToName(input) {
+  return toName[input] || null;
+}
+
+function convertToAbbreviation(input) {
+
+  if (toPostal[input]) {
+    return toPostal[input];
   }
 
   for (var i = 0, l = fuzzyMatches.length; i < l; i++) {
-    if (test.match(fuzzyMatches[i][0])) {
+    if (input.match(fuzzyMatches[i][0])) {
       return fuzzyMatches[i][1];
     }
   }
@@ -41,4 +53,9 @@ function doConversion(str) {
 function isStr(str) {
   return typeof str === "string";
 }
+
+function clean(str) {
+  return str.trim().replace(/\s+/g," ").toUpperCase();
+}
+
 module.exports = convert;
